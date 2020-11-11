@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 450px">La liste des bons d'entrés</h2>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="BonEntreListForm">
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{bonEntreController.items}" var="item"
+                                 selectionMode="single" selection="#{bonEntreController.selected}"
+                                 paginator="true" rowKey="#{item.numBE}" rows="4"
+                                 filteredValue="#{bonEntreController.filteredBonlList}"
+                                 widgetVar="MaterielWidget">
+        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Checher:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('MaterielWidget').filter()" style="width:300px" placeholder="Rechecher ici"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column filterBy="#{item.numBE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_numBE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numBE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.numFacteur}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_numFacteur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numFacteur}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.dateFacteur}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_dateFacteur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateFacteur}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.fournBE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_fournBE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fournBE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.dateBE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_dateBE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateBE}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.categorieMBE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_categorieMBE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.categorieMBE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.marqueMBE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleBon.ListBonEntreTitle_marqueMBE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marqueMBE}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+
+</html>

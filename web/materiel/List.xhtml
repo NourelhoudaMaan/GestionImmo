@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 500px">La liste du matériel</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <p:commandButton action="#{materielController.prepareCreate}" value="#{bundle4.ListMaterielCreateLink}" style=" margin-left:500px ;font-size: 16px  ;margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: #fff ;" />
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle4.ListMaterielEmpty}" rendered="#{materielController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{materielController.items.rowCount > 0}">
+                    <p:dataTable value="#{materielController.items}" var="item" paginator="true" rows="4" scrollable="true" frozenColumns="4">
+                        <p:column style="width: 200px">
+                            <f:facet name="header">
+                                <h:outputText value="Option"/>
+                            </f:facet>
+                            <h:commandLink action="#{materielController.prepareView}" value="#{bundle4.ListMaterielViewLink}"/>
+                            |
+                            <h:commandLink action="#{materielController.prepareEdit}" value="#{bundle4.ListMaterielEditLink}"/>
+                            |
+                            <h:commandLink onclick="return confirm('Voullez-vous supprimer ce matériel?')" action="#{materielController.destroy}" value="#{bundle4.ListMaterielDestroyLink}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_idM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_articleM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_compteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.compteM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_numSerieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numSerieM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_desiniationM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.desiniationM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_codeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codeM}"/>
+                        </p:column>
+                        
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_marckM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marckM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_departM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_serviceM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_etatM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_bultaLivraison}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultaLivraison}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_bultatSortieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultatSortieM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_employeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.employeM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_dateAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateAq}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_valeurAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valeurAq}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_fournisseurM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fournisseurM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_directionM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.directionM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_siteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.siteM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_bureauM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bureauM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_varStock}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.varStock}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle4.ListMaterielTitle_typeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeM}"/>
+                        </p:column>
+                        
+                    </p:dataTable>
+                </h:panelGroup>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

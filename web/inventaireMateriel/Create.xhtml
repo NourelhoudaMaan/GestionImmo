@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventaireMaterielCreateDlg" footer="Ajouter un nouveau inventaire" widgetVar="InventaireMaterielCreateDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundleInventaire.CreateInventaireMaterielTitle}">
+            <h:form id="InventaireMaterielCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventaireMaterielController.selected != null}">
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_nbrIM}" for="nbrIM" />
+                        <p:inputText id="nbrIM" value="#{inventaireMaterielController.selected.nbrIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_nbrIM}" required="true" requiredMessage="#{bundleInventaire.CreateInventaireMaterielRequiredMessage_nbrIM}"/>     
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_marqueIM}" for="marqueIM" />
+                        <p:inputText id="marqueIM" value="#{inventaireMaterielController.selected.marqueIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_marqueIM}" required="true" requiredMessage="#{bundleInventaire.CreateInventaireMaterielRequiredMessage_marqueIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_typeIM}" for="typeIM" />
+                        <p:inputText id="typeIM" value="#{inventaireMaterielController.selected.typeIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_typeIM}" required="true" requiredMessage="#{bundleInventaire.CreateInventaireMaterielRequiredMessage_typeIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_equipeAIM}" for="equipeAIM" />
+                        <p:inputText id="equipeAIM" value="#{inventaireMaterielController.selected.equipeAIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_equipeAIM}" required="true" requiredMessage="#{bundleInventaire.CreateInventaireMaterielRequiredMessage_equipeAIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_equipeBIM}" for="equipeBIM" />
+                        <p:inputText id="equipeBIM" value="#{inventaireMaterielController.selected.equipeBIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_equipeBIM}" required="true" requiredMessage="#{bundleInventaire.CreateInventaireMaterielRequiredMessage_equipeBIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.CreateInventaireMaterielLabel_equipeCIM}" for="equipeCIM" />
+                        <p:inputText id="equipeCIM" value="#{inventaireMaterielController.selected.equipeCIM}" title="#{bundleInventaire.CreateInventaireMaterielTitle_equipeCIM}" />
+                    </p:panelGrid>
+                    
+                    <p:commandButton  actionListener="#{inventaireMaterielController.create}" value="#{bundleInventaire.Save}" update="display,:InventaireMaterielListForm:datalist,:growl" oncomplete="handleSubmit(args,'InventaireMaterielCreateDialog');"/>
+                    <p:commandButton value="#{bundleInventaire.Cancel}" onclick="InventaireMaterielCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

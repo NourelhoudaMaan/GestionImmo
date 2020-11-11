@@ -1,0 +1,143 @@
+.ui-widget {
+    font-size: 12px !important;
+}
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;;
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;
+}
+.ui-widget-header {
+    text-align: center;
+    text-transform: uppercase;
+}
+.ui-button {
+    margin-top: 10px !important;
+}
+
+.ui-dialog{
+    background-color:  #FFDEAD;
+}
+
+.ui-panelGrid-text{
+    background: #FFFAF0;
+     font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+.ui-dialog-titlebar{
+    position: center ;
+    font-size:  16px;
+    font-weight: bold;
+}
+
+.ui-dialog-content{
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+
+.ui-button {
+    margin-top: 10px !important;
+    
+}
+
+
+.ui-menubar{
+    background: black ;
+    height: 50px ;
+    padding-top: 25px ;
+} 
+.ui-menuitem-text{
+    color: white ;
+    font-size: 18px ;
+}
+
+.ui-menu-child {
+
+  white-space: nowrap;
+  width: auto !important;
+  background-color: black ;
+
+}
+
+.ui-datatable {
+    margin:  10px 10px 10px 10px ;
+    text-align: center;
+}
+
+.ui-datatable thead th {
+    color: #221F4B;
+}
+
+.ui-datatable tbody tr {
+    height: 3rem;
+}
+
+.ui-datatable-even {
+    background-color: #FFFAF0 ;
+        color: black;
+}
+
+.ui-datatable-odd {
+    background-color: #FFDEAD;
+    color: black;
+}
+
+@media screen and (min-width: 769px) {
+    .ui-datatable {
+        margin: 10px 10px 10px 10px;
+    }
+}
+
+
+.ui-graphicImage {
+  width: 24px !important;
+  font-size: 24px !important;
+}
+
+.colon{
+    width: 80px;
+}
+
+.colon1{
+    width: 120px;
+}
+
+.tableau{
+    background-color:  #000 ;
+}
+
+.ui-layout-unit-content{
+    background: whitesmoke;
+}
+
+.panelClass{
+    font-size: 14px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin-right: 5px;
+    float: right ;
+    width: 200px ;
+    
+}
+
+.input{
+    background-color: rgba(255,255,255,0.1) ;
+    border-style: dotted ;
+    border-bottom: 2px solid #d34836 ;
+    text-align: center ;
+    font-size: 14px ;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+}
+
+.outputText{
+    font-size: 18px ;
+    color: white ;
+}
+
+

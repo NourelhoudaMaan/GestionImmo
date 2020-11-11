@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <h:form id="NotificationListForm">
+                <p:panel >
+                    <p:dataTable id="datalist" value="#{notificationController.ListCommisionAdmin()}" var="item"
+                                 selectionMode="single" selection="#{notificationController.selected}"
+                                 paginator="true" rowKey="#{item.idN}" rows="10" >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton "/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton "/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleNotification.ListNotificationTitle_senderN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleNotification.ListNotificationTitle_receiverN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleNotification.ListNotificationTitle_objectMsgN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleNotification.ListNotificationTitle_bodyMsgN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleNotification.ListNotificationTitle_dateN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundleNotification.Create}" actionListener="#{notificationController.prepareCreate}" update=":NotificationCreateForm" oncomplete="PF('NotificationCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundleNotification.View}" update=":NotificationViewForm" oncomplete="PF('NotificationViewDialog').show()" disabled="#{empty notificationController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

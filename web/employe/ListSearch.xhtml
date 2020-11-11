@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundleEmploye.ListEmployeTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EmployeListForm">
+                <p:panel header="#{bundleEmploye.ListEmployeTitle}">
+                    <p:dataTable id="datalist" value="#{employeController.items}" var="item"
+                                 selectionMode="single" selection="#{employeController.selected}"
+                                 paginator="true" rowKey="#{item.matriculeE}"
+                                 rows="5"
+                                 filteredValue="#{employeController.filteredEmployelList}"
+                                 widgetVar="MaterielWidget" >
+        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Checher:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('MaterielWidget').filter()" style="width:300px" placeholder="Rechecher ici"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column filterBy="#{item.matriculeE}" filterMatchMode="contains" styleClass="colon" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleEmploye.ListEmployeTitle_matriculeE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.matriculeE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.nomE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleEmploye.ListEmployeTitle_nomE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.prenomE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleEmploye.ListEmployeTitle_prenomE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenomE}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.emailE}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleEmploye.ListEmployeTitle_emailE}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailE}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

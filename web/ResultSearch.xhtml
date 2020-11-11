@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <p:dataTable value="#{searchBean.resultSearchMateriel()}" var="item">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="CodeM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codeM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="MarqueM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.marqueM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="TypeM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.typeM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="DirectionM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.directionM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="DepartementM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.departementM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="ServiceM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.serviceM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="EtatM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etatM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="NumDeplacementM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numDeplacementM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="DateDeplacementM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateDeplacementM}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="DirectionDeplcmM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.directionDeplcmM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="BlocDeplcm"/>
+                        </f:facet>
+                        <h:outputText value="#{item.blocDeplcm}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="EtageDeplcmM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.etageDeplcmM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="NbrM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nbrM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="EquipeAM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.equipeAM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="EquipeBM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.equipeBM}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="EquipeCM"/>
+                        </f:facet>
+                        <h:outputText value="#{item.equipeCM}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+    </ui:composition>
+</html>   
+
+

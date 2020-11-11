@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 450px">Chercher dans la liste d'inventaire</h2>
+        </ui:define>
+        <ui:define name="body">
+                <h:form id="MaterielWidget">
+                    <p:panel>
+                        <p:dataTable id="datalist" value="#{inventaireMaterielController.items}" var="item"
+                            selectionMode="single" selection="#{inventaireMaterielController.selected}"
+                            paginator="true" rowKey="#{item.idIM}" rows="5"
+                            filteredValue="#{inventaireMaterielController.filteredMaterielList}"
+                            widgetVar="MaterielWidget"  scrollable="true"  frozenColumns="4" >
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Rechecher:"/>
+                                    <p:inputText id="globalFilter" onkeyup="PF('MaterielWidget').filter()" style="width:300px" placeholder="Rechecher ici"/>
+                                </p:outputPanel>
+                            </f:facet>
+                            
+                            <p:column filterBy="#{item.nbrIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_nbrIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nbrIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.marqueIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_marqueIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.marqueIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.typeIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_typeIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.typeIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.equipeAIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeAIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeAIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.equipeBIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeBIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeBIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.equipeCIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeCIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeCIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.codeIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_codeIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.codeIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.directionIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_directionIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.directionIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.departementIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_departementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.departementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.serviceIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_serviceIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.serviceIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.etatIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_etatIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.etatIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.numDeplacementIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_numDeplacementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.numDeplacementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.dateDeplacementIM}" filterMatchMode="contains" styleClass="colon1"> 
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_dateDeplacementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateDeplacementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column filterBy="#{item.directionDeplcmIM}" filterMatchMode="contains" styleClass="colon1"> 
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_directionDeplcmIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.directionDeplcmIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.blocDeplcm}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_blocDeplcm}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.blocDeplcm}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column filterBy="#{item.etageDeplcmIM}" filterMatchMode="contains" styleClass="colon1">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_etageDeplcmIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.etageDeplcmIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+    </ui:composition>
+
+</html>

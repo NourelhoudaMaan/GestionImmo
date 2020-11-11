@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventaireMaterielViewDlg" widgetVar="InventaireMaterielViewDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundleInventaire.ViewInventaireMaterielTitle}">
+            <h:form id="InventaireMaterielViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventaireMaterielController.selected != null}">
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_idIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.idIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_idIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_codeIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.codeIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_codeIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_marqueIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.marqueIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_marqueIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_typeIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.typeIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_typeIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_directionIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.directionIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_directionIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_departementIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.departementIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_departementIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_serviceIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.serviceIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_serviceIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_etatIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.etatIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_etatIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_numDeplacementIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.numDeplacementIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_numDeplacementIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_dateDeplacementIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.dateDeplacementIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_dateDeplacementIM}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_directionDeplcmIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.directionDeplcmIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_directionDeplcmIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_blocDeplcm}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.blocDeplcm}" title="#{bundleInventaire.ViewInventaireMaterielTitle_blocDeplcm}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_etageDeplcmIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.etageDeplcmIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_etageDeplcmIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_nbrIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.nbrIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_nbrIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_equipeAIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.equipeAIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_equipeAIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_equipeBIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.equipeBIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_equipeBIM}"/>
+                        <h:outputText value="#{bundleInventaire.ViewInventaireMaterielLabel_equipeCIM}"/>
+                        <h:outputText value="#{inventaireMaterielController.selected.equipeCIM}" title="#{bundleInventaire.ViewInventaireMaterielTitle_equipeCIM}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleInventaire.Close}" onclick="InventaireMaterielViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

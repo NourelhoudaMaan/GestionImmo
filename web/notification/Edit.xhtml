@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="NotificationEditDlg" widgetVar="NotificationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleNotification.EditNotificationTitle}">
+            <h:form id="NotificationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{notificationController.selected != null}">
+                        <p:outputLabel value="#{bundleNotification.EditNotificationLabel_senderN}" for="senderN" />
+                        <p:inputText id="senderN" value="#{notificationController.selected.senderN}" title="#{bundleNotification.EditNotificationTitle_senderN}" required="true" requiredMessage="#{bundleNotification.EditNotificationRequiredMessage_senderN}"/>
+                        <p:outputLabel value="#{bundleNotification.EditNotificationLabel_receiverN}" for="receiverN" />
+                        <p:inputText id="receiverN" value="#{notificationController.selected.receiverN}" title="#{bundleNotification.EditNotificationTitle_receiverN}" required="true" requiredMessage="#{bundleNotification.EditNotificationRequiredMessage_receiverN}"/>
+                        <p:outputLabel value="#{bundleNotification.EditNotificationLabel_objectMsgN}" for="objectMsgN" />
+                        <p:inputText id="objectMsgN" value="#{notificationController.selected.objectMsgN}" title="#{bundleNotification.EditNotificationTitle_objectMsgN}" required="true" requiredMessage="#{bundleNotification.EditNotificationRequiredMessage_objectMsgN}"/>
+                        <p:outputLabel value="#{bundleNotification.EditNotificationLabel_bodyMsgN}" for="bodyMsgN" />
+                        <p:inputText id="bodyMsgN" value="#{notificationController.selected.bodyMsgN}" title="#{bundleNotification.EditNotificationTitle_bodyMsgN}" required="true" requiredMessage="#{bundleNotification.EditNotificationRequiredMessage_bodyMsgN}"/>
+                        <p:outputLabel value="#{bundleNotification.EditNotificationLabel_dateN}" for="dateN" />
+                        <p:calendar id="dateN" pattern="MM/dd/yyyy HH:mm:ss" value="#{notificationController.selected.dateN}" title="#{bundleNotification.EditNotificationTitle_dateN}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{notificationController.update}" value="#{bundleNotification.Save}" update="display,:NotificationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'NotificationEditDialog');"/>
+                    <p:commandButton value="#{bundleNotification.Cancel}" onclick="NotificationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

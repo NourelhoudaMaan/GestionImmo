@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 450px">Détaille sur la demande</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+            <h:form  style="padding-left: 10px;">
+                <p:panel id="DemandeDiv">
+            <div class="rom" >
+                <div class="col-md-1"> </div>
+                <div class="col-md-5">
+                    <table border="2" >
+                        <tr style="background-color:#ffff9e;">
+                           <th rowspan="3" ><img src="../resources/images/C1.jpg" alt="logo du GCB " /></th>
+                            <th  width="600px" > System Managment De Qualité </th>
+                            <th width="400px"> IMP 661.A </th>
+                        </tr>
+                        <tr style="background-color: #ffff9e;">
+                            <th rowspan="2" >FEUILLE DE ROUTE <br/>LOCATION MATERIEL</th>
+                            <th> Date d'application <br/> 30/06/2020</th>
+                        </tr>
+                        <tr style="background-color: #ffff9e;">
+                              <th> Page 1 Sur1 </th>
+                        </tr>
+                    </table> <br/> <br/> 
+                    <table border="2" width="1100px" style="background-color:#DCDCDC;">
+                        <tr>
+                            <th > Nom </th>
+                            <th> Prénom</th>
+                        </tr>
+                        <tr>
+                            <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.nom}" title="#{bundleDemande.ViewDemandeTitle_nom}"/></td>
+                            <td align="center" style=" height: 50px"><h:outputText value="#{demandeController.selected.prénom}" title="#{bundleDemande.ViewDemandeTitle_prénom}"/></td>
+                        </tr>
+                    </table><br/> <br/> 
+                    <table border="2" width="1100px" style="background-color:#DCDCDC;">
+                        <tr >
+                            <th > Structeur Emettrice </th>
+                            <th style="width:100;"> Date </th>
+                            <th> Réf: </th>
+                        </tr>
+                        <tr>
+                            <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.stuctureD}" title="#{bundleDemande.ViewDemandeTitle_stuctureD}"/></td>
+                            <td align="center" style=" height: 50px">
+                                <h:outputText value="#{demandeController.selected.dateD}" title="#{bundleDemande.ViewDemandeTitle_dateD}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </td>
+                            <td align="center" style=" height: 50px"><h:outputText value="#{demandeController.selected.refferenceD}" title="#{bundleDemande.ViewDemandeTitle_refferenceD}"/></td>
+                        </tr>
+                    </table><br/> <br/> 
+                    <table border="2" width="1100px" style="background-color:#DCDCDC;">
+                        <tr height="20px">
+                            <th > Materiel demande  pour  <br/>La location</th> 
+                            <th> Type <br/> Capacité </th>
+                            <th> Qté </th>
+                            <th> Durée </th>
+                            <th> Projet <br/> D'affectation  </th>
+                            <th> Nature Des Travaux <br/> Et Quntitatif </th>
+                            </tr>
+                            <tr>
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.materielD}" title="#{bundleDemande.ViewDemandeTitle_materielD}"/></td> 
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.typeD}" title="#{bundleDemande.ViewDemandeTitle_typeD}"/></td>
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.qteD}" title="#{bundleDemande.ViewDemandeTitle_qteD}"/></td>
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.dureeD}" title="#{bundleDemande.ViewDemandeTitle_dureeD}"/></td>
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.projetEffectD}" title="#{bundleDemande.ViewDemandeTitle_projetEffectD}"/></td>
+                                <td align="center" style="height: 50px"><h:outputText value="#{demandeController.selected.natureTrvD}" title="#{bundleDemande.ViewDemandeTitle_natureTrvD}"/></td>
+                            </tr>
+                        </table><br/><br/><br/> <br/><br/> 
+                        
+                        <table border="2" width="1100px" style="background-color:#DCDCDC;">
+                            <tr height="20px">
+                                <th> Visa D'opportunite <br/>Direction Tec </th>
+                                <th>  Visa D'accord <br/>Direction Materiel</th>
+                            </tr> 
+                            <tr>
+                                <td align="center" style="height: 100px"><h:outputText value="#{demandeController.selected.visaOpD}" title="#{bundleDemande.ViewDemandeTitle_visaOpD}"/></td>
+                                <td align="center" style="height: 100px"><h:outputText value="#{demandeController.selected.visaAccD}" title="#{bundleDemande.ViewDemandeTitle_visaAccD}"/></td>
+                            </tr>
+                        </table><br/><br/><br/> 
+                        <table border="1" width="1100px" style="background-color:#DCDCDC;">
+                            <td align="center"> Ce document est la propriéte ou GCB il ne peut pas reproduire ou communiqué sans son autorisation</td>
+                        </table> 
+                </div>
+            </div></p:panel> <br/>
+            <div > 
+            <p:commandButton action="#{demandeController.prepareList}" value="#{bundleDemande.ViewDemandeShowAllLink}" style="float: left;font-size: 14px  ; margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: black ;"/>
+            <p:commandButton value="Print" type="button" style=" display:block; float: right; font-size: 14px; margin-bottom: 20px; margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color:black;">
+                <p:printer target="DemandeDiv" />
+            </p:commandButton>
+            </div>
+        </h:form>
+            
+
+        </ui:define>
+    </ui:composition>
+
+</html>

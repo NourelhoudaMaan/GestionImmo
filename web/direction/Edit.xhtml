@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DirectionEditDlg" widgetVar="DirectionEditDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDirectionTitle}">
+            <h:form id="DirectionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{directionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDirectionLabel_codeDr}" for="codeDr" />
+                        <p:inputText id="codeDr" value="#{directionController.selected.codeDr}" title="#{bundle.EditDirectionTitle_codeDr}" readonly="true"/>
+                        <p:outputLabel value="#{bundle.EditDirectionLabel_libilleDr}" for="libilleDr" />
+                        <p:inputText id="libilleDr" value="#{directionController.selected.libilleDr}" title="#{bundle.EditDirectionTitle_libilleDr}" required="true" requiredMessage="#{bundle.EditDirectionRequiredMessage_libilleDr}"/>
+                        <p:outputLabel value="#{bundle.EditDirectionLabel_type}" for="type" />
+                        <p:inputText id="type" value="#{directionController.selected.type}" title="#{bundle.EditDirectionTitle_type}" required="true" requiredMessage="#{bundle.EditDirectionRequiredMessage_typeDr}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{directionController.update}" value="#{bundle.Save}" update="display,:DirectionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DirectionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DirectionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

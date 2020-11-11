@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DirectionViewDlg" widgetVar="DirectionViewDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDirectionTitle}">
+            <h:form id="DirectionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{directionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDirectionLabel_codeDr}"/>
+                        <h:outputText value="#{directionController.selected.codeDr}" title="#{bundle.ViewDirectionTitle_codeDr}"/>
+                        <h:outputText value="#{bundle.ViewDirectionLabel_libilleDr}"/>
+                        <h:outputText value="#{directionController.selected.libilleDr}" title="#{bundle.ViewDirectionTitle_libilleDr}"/>
+                        <h:outputText value="#{bundle.ViewDirectionLabel_type}"/>
+                        <h:outputText value="#{directionController.selected.type}" title="#{bundle.ViewDirectionTitle_type}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DirectionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

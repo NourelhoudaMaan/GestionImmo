@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 450px">La liste des demandes</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <p:commandButton action="#{demandeController.prepareCreate}" value="#{bundleDemande.ListDemandeCreateLink}" style="font-size: 14px  ;margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: #fff ;"/>
+                <br />
+                <h:outputText escape="false" value="#{bundleDemande.ListDemandeEmpty}" rendered="#{demandeController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{demandeController.items.rowCount > 0}">
+                    <p:dataTable value="#{demandeController.listeDemandeMGX()}" var="item" rows="3" paginator="true"
+                                 scrollable="true" frozenColumns="4">
+                        <p:column style="width: 200px">
+                            <f:facet name="header">
+                                <h:outputText value="Option"/>
+                            </f:facet>
+                            <h:commandLink action="#{demandeController.prepareView}" value="#{bundleDemande.ListDemandeViewLink}"/>
+                            |
+                            <h:commandLink action="#{demandeController.prepareEdit}" value="#{bundleDemande.ListDemandeEditLink}"/>
+                            |
+                            <h:commandLink action="#{demandeController.destroy}" value="#{bundleDemande.ListDemandeDestroyLink}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_prénom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prénom}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_materielD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materielD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_stuctureD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stuctureD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_dateD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateD}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_refferenceD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.refferenceD}"/>
+                        </p:column>
+                        
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_typeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_qteD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qteD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_dureeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dureeD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_projetEffectD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.projetEffectD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_natureTrvD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.natureTrvD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_visaOpD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.visaOpD}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleDemande.ListDemandeTitle_visaAccD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.visaAccD}"/>
+                        </p:column>
+                        
+                    </p:dataTable>
+                </h:panelGroup>
+                <br />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

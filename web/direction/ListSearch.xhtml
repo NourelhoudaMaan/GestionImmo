@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="body">
+            
+            <h:form id="DemandeListForm">
+                <p:panel header="#{bundle3.ListDemandeTitle}">
+                    <p:dataTable id="datalist" value="#{demandeController.items}" var="item"
+                                 selectionMode="single" selection="#{demandeController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idD}"
+                                 rows="5"
+                                 filteredValue="#{demandeController.filteredDemandeList}"
+                                 widgetVar="DemandeWidget"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Search all:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('DemandeWidget').filter()" style="width:150px" placeholder="Search text"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                  
+                        <p:column filterBy="#{item.idD}" filterMatchMode="contains">
+                            <f:facet name="header" >
+                                <h:outputText value="#{bundle3.ListDemandeTitle_idD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.nom}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.prénom}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_prénom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prénom}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.stuctureD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_stuctureD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stuctureD}"/>
+                        </p:column >
+                        <p:column filterBy="#{item.dateD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_dateD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateD}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.refferenceD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_refferenceD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.refferenceD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.materielD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_materielD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materielD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.typeD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_typeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.qteD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_qteD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qteD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.dureeD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_dureeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dureeD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.projetEffectD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_projetEffectD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.projetEffectD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.natureTrvD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_natureTrvD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.natureTrvD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.visaOpD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_visaOpD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.visaOpD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.visaAccD}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_visaAccD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.visaAccD}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle3.View}" update=":DemandeViewForm" oncomplete="PF('DemandeViewDialog').show()" disabled="#{empty demandeController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle3.Edit}" update=":DemandeEditForm" oncomplete="PF('DemandeEditDialog').show()" disabled="#{empty demandeController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle3.Delete}" actionListener="#{demandeController.destroy}" update=":growl,datalist" disabled="#{empty demandeController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

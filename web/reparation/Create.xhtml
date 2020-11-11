@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReparationCreateDlg" widgetVar="ReparationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleReparation.CreateReparationTitle}">
+            <h:form id="ReparationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reparationController.selected != null}">
+                        <p:outputLabel value="#{bundleReparation.CreateReparationLabel_codeMR}" for="codeMR" />
+                        <p:inputText id="codeMR" value="#{reparationController.selected.codeMR}" title="#{bundleReparation.CreateReparationTitle_codeMR}" required="true" requiredMessage="#{bundleReparation.CreateReparationRequiredMessage_codeMR}"/>
+                        <p:outputLabel value="#{bundleReparation.CreateReparationLabel_marckR}" for="marckR" />
+                        <p:inputText id="marckR" value="#{reparationController.selected.marckR}" title="#{bundleReparation.CreateReparationTitle_marckR}" required="true" requiredMessage="#{bundleReparation.CreateReparationRequiredMessage_marckR}"/>
+                        <p:outputLabel value="#{bundleReparation.CreateReparationLabel_categorieMR}" for="categorieMR" />
+                        <p:inputText id="categorieMR" value="#{reparationController.selected.categorieMR}" title="#{bundleReparation.CreateReparationTitle_categorieMR}" required="true" requiredMessage="#{bundleReparation.CreateReparationRequiredMessage_categorieMR}"/>
+                        <p:outputLabel value="#{bundleReparation.CreateReparationLabel_typeMR}" for="typeMR" />
+                        <p:inputText id="typeMR" value="#{reparationController.selected.typeMR}" title="#{bundleReparation.CreateReparationTitle_typeMR}" required="true" requiredMessage="#{bundleReparation.CreateReparationRequiredMessage_typeMR}"/>
+                        <p:outputLabel value="#{bundleReparation.CreateReparationLabel_etatMR}" for="etatMR" />
+                        <p:inputText id="etatMR" value="#{reparationController.selected.etatMR}" title="#{bundleReparation.CreateReparationTitle_etatMR}" required="true" requiredMessage="#{bundleReparation.CreateReparationRequiredMessage_etatMR}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{reparationController.create}" value="#{bundleReparation.Save}" update="display,:ReparationListForm:datalist,:growl" oncomplete="handleSubmit(args,'ReparationCreateDialog');"/>
+                    <p:commandButton value="#{bundleReparation.Cancel}" onclick="ReparationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

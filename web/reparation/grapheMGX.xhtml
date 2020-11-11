@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 300px">Les statistiques sur les différents catégoriés de matériel mgx tombent en panne</h2>
+        </ui:define>
+        <ui:define name="body">
+            <p:fieldset>
+                <p:chart type="pie" model="#{reparationController.GrapheModelMGX()}"/>
+            </p:fieldset><br/>
+            <p:fieldset>
+                <h4 style="margin-left: 550px;font-size: 18px;">PC</h4>
+                <p:chart type="pie" model="#{reparationController.GraphePCPieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GraphePCReparePieMGX()}" style="float: right;width: 400px;"/><br/>
+                <p:chart type="pie" model="#{reparationController.GraphePCRefusePieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GraphePCEnpannePieMGX()}" style="float: right;width: 400px;"/><br/>
+            </p:fieldset><br/>
+            <p:fieldset>
+                <h4 style="margin-left: 550px;font-size: 18px">Clavie</h4>
+                <p:chart type="pie" model="#{reparationController.GrapheClavierPieMGX()}" style=" float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheClavierReparePieMGX()}" style="float: right;width: 400px;"/><br/>
+                <p:chart type="pie" model="#{reparationController.GrapheClavierRefusePieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheClavieEnpannePieMGX()}" style="wfloat: right;width: 400px;"/><br/>
+            </p:fieldset><br/>
+            <p:fieldset>
+                <h4 style="margin-left: 550px;font-size: 18px">Unité centrale</h4>
+                <p:chart type="pie" model="#{reparationController.GrapheUCPieMGX()}" style="float: left ; width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheUCReparePieMGX()}" style="float: right ; width: 400px; "/><br/>
+                <p:chart type="pie" model="#{reparationController.GrapheUCRefusePieMGX()}" style="float: left ; width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheUCEnpannePieMGX()}" style="float: right ; width: 400px;"/><br/>
+            </p:fieldset><br/>
+            <p:fieldset>
+                <h4 style="margin-left: 450px;font-size: 18px">Ecran</h4>
+                <p:chart type="pie" model="#{reparationController.GrapheEcranPieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheEcranReparePieMGX()}" style="float: right;width: 400px;"/><br/>
+                <p:chart type="pie" model="#{reparationController.GrapheEcranRefusePieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheEcranEnpannePieMGX()}" style="float: right;width: 400px;"/>
+            </p:fieldset><br/>
+            <p:fieldset>
+                <h4 style="margin-left: 550px;font-size: 18px">Souris</h4>
+                <p:chart type="pie" model="#{reparationController.GrapheSourisPieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheSourisReparePieMGX()}" style="float: right;width: 400px;"/><br/>
+                <p:chart type="pie" model="#{reparationController.GrapheSourisRefusePieMGX()}" style="float: left;width: 400px;"/>
+                <p:chart type="pie" model="#{reparationController.GrapheSourisEnpannePieMGX()}" style="float: right;width: 400px;"/>
+            </p:fieldset><br/>
+        </ui:define>
+    </ui:composition>
+</html>
+

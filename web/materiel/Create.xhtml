@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h2 style="margin-left: 400px">Ajouter un nouveau matériel</h2>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="8" bgcolor="#FFDEAD"  width="500px" cellpadding="5px" cellspacing="10px" style=" margin-left: 30px; " >
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_articleM}" for="articleM" styleClass="panelClass"/>
+                    <h:inputText id="articleM" value="#{materielController.selected.articleM}" title="#{bundle4.CreateMaterielTitle_articleM}" styleClass="input" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_compteM}" for="compteM" styleClass="panelClass"/>
+                    <h:inputText id="compteM" value="#{materielController.selected.compteM}" title="#{bundle4.CreateMaterielTitle_compteM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_desiniationM}" for="desiniationM" styleClass="panelClass"/>
+                    <h:inputText id="desiniationM" value="#{materielController.selected.desiniationM}" title="#{bundle4.CreateMaterielTitle_desiniationM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_codeM}" for="codeM" styleClass="panelClass"/>
+                    <h:inputText id="codeM" value="#{materielController.selected.codeM}" title="#{bundle4.CreateMaterielTitle_codeM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_numSerieM}" for="numSerieM" styleClass="panelClass" />
+                    <h:inputText id="numSerieM" value="#{materielController.selected.numSerieM}" title="#{bundle4.CreateMaterielTitle_numSerieM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_marckM}" for="marckM" styleClass="panelClass"/>
+                    <h:inputText id="marckM" value="#{materielController.selected.marckM}" title="#{bundle4.CreateMaterielTitle_marckM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_departM}" for="departM" styleClass="panelClass"/>
+                    <h:inputText id="departM" value="#{materielController.selected.departM}" title="#{bundle4.CreateMaterielTitle_departM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_serviceM}" for="serviceM" styleClass="panelClass"/>
+                    <h:inputText id="serviceM" value="#{materielController.selected.serviceM}" title="#{bundle4.CreateMaterielTitle_serviceM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_etatM}" for="etatM" styleClass="panelClass"/>
+                    <h:inputText id="etatM" value="#{materielController.selected.etatM}" title="#{bundle4.CreateMaterielTitle_etatM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_bultaLivraison}" for="bultaLivraison" styleClass="panelClass"/>
+                    <h:inputText id="bultaLivraison" value="#{materielController.selected.bultaLivraison}" title="#{bundle4.CreateMaterielTitle_bultaLivraison}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_bultatSortieM}" for="bultatSortieM" styleClass="panelClass"/>
+                    <h:inputText id="bultatSortieM" value="#{materielController.selected.bultatSortieM}" title="#{bundle4.CreateMaterielTitle_bultatSortieM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_employeM}" for="employeM" styleClass="panelClass"/>
+                    <h:inputText id="employeM" value="#{materielController.selected.employeM}" title="#{bundle4.CreateMaterielTitle_employeM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_dateAq}" for="dateAq" styleClass="panelClass"/>
+                    <h:inputText id="dateAq" value="#{materielController.selected.dateAq}" title="#{bundle4.CreateMaterielTitle_dateAq}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_valeurAq}" for="valeurAq" styleClass="panelClass"/>
+                    <h:inputText id="valeurAq" value="#{materielController.selected.valeurAq}" title="#{bundle4.CreateMaterielTitle_valeurAq}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_fournisseurM}" for="fournisseurM" styleClass="panelClass"/>
+                    <h:inputText id="fournisseurM" value="#{materielController.selected.fournisseurM}" title="#{bundle4.CreateMaterielTitle_fournisseurM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_directionM}" for="directionM" styleClass="panelClass"/>
+                    <h:inputText id="directionM" value="#{materielController.selected.directionM}" title="#{bundle4.CreateMaterielTitle_directionM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_siteM}" for="siteM" styleClass="panelClass"/>
+                    <h:inputText id="siteM" value="#{materielController.selected.siteM}" title="#{bundle4.CreateMaterielTitle_siteM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_bureauM}" for="bureauM" styleClass="panelClass"/>
+                    <h:inputText id="bureauM" value="#{materielController.selected.bureauM}" title="#{bundle4.CreateMaterielTitle_bureauM}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_varStock}" for="varStock" styleClass="panelClass"/>
+                    <h:inputText id="varStock" value="#{materielController.selected.varStock}" title="#{bundle4.CreateMaterielTitle_varStock}" />
+                    <h:outputLabel value="#{bundle4.CreateMaterielLabel_typeM}" for="typeM" styleClass="panelClass"/>
+                    <h:inputText id="typeM" value="#{materielController.selected.typeM}" title="#{bundle4.CreateMaterielTitle_typeM}" />
+                </h:panelGrid>
+                <br />
+                <p:commandButton action="#{materielController.create}" value="#{bundle4.CreateMaterielSaveLink}" style=" margin-left:500px ;font-size: 16px  ;margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: #fff ;" />
+            </h:form>
+    </ui:composition>
+
+</html>

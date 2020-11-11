@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <script src="resources/js/jquery.min.js"> </script>
+        <script src="resources/js/bootstrap.min.js"> </script>
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="resources/css/jsfcrud.css" type="text/css"/>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <link media="print"/> 
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+            <ui:define name="header">
+                <div styleClass="container">
+                <div  styleClass="navbar-header">
+                <h:form>
+                    <p:menubar styleClass="nav navbar-nav" >
+                        <p:menuitem value="gestion de materiel"  styleClass="navbar-brand" style="margin-left:130px; margin-top: 4px"/>
+                        <p:menuitem >
+                            <img src="resources/images/C1.jpg" alt="logo du GCB " width="40px" height="40px" style=" margin-right: 50px"/> 
+                        </p:menuitem>
+                        <p:menuitem style="margin-left:20px; ">
+                            <img src="resources/images/homee.png" alt="Home" width="15px" height="19px" style="margin-top: 7px"/> 
+                        </p:menuitem>
+                        <p:menuitem value="#{bundle.Home}" outcome="/admin" style="margin-right: 7px;margin-top: 4px"/>
+                        <p:menuitem style="margin-left:30px; ">
+                            <img src="resources/images/computer.ico" alt="Materiel" width="30px" height="30px" style="margin-top: 6px;"/> 
+                        </p:menuitem>
+                        <p:submenu label="Matériel" style="margin-top: 4px; margin-right: 7px" >
+                            <p:submenu label="Boumerdes"> 
+                                <p:menuitem value="La liste" outcome="materiel/List.xhtml" title="La liste du matériel" target="content" />
+                                <p:menuitem value="Chercher" outcome="materiel/ListSearch.xhtml" title="La liste du matériel" target="content" />
+                            </p:submenu>
+                            <p:submenu label="Ouad Smar"> 
+                                <p:menuitem value="La liste" outcome="materielsmar/List.xhtml" title="La liste du matériel" target="content" />
+                                <p:menuitem value="Chercher" outcome="materiel/ListSearch.xhtml" title="La liste du matériel" target="content" />
+                            </p:submenu>
+                        </p:submenu>
+                 
+                        <p:menuitem >
+                            <img src="resources/images/demande.ico" alt="Demande" width="30px" height="30px" style="margin-top: 6px;"/> 
+                        </p:menuitem>
+                        <p:submenu label="Demandes" style="margin-top: 4px; margin-right: 7px">
+                            <p:menuitem value="La liste" title="Toutes les demandes" outcome="/demande/List" target="content"  />
+                            <p:menuitem value="Chercher" title="Faire une recherche sur une demande" outcome="/demande/ListSearch" target="content"  />
+                        </p:submenu>
+                        
+                        <p:menuitem >
+                            <img src="resources/images/bons.ico" alt="Bons" width="30px" height="30px" style="margin-top: 6px"/> 
+                        </p:menuitem>
+                        <p:submenu label="Bons" style="margin-right: 7px ;margin-top: 4px;">
+                            <p:submenu label="Bon d'entré">
+                                <p:menuitem value="Ajouter" outcome="/bonEntre/List" target="content"/>
+                                <p:menuitem value="Chercher" outcome="/bonEntre/ListSearch" target="content"/>
+                            </p:submenu>
+                            <p:submenu label="Bons de sortie">
+                                <p:menuitem value="Ajouter" outcome="/bonSortie/List" target="content" />
+                                <p:menuitem value="Chercher" outcome="/bonSortie/ListSearch"  target="content" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:menuitem>
+                            <img  src="resources/images/tools.ico" alt="Autres icon" width="30px" height="30px" style="margin-top: 6px" /> 
+                        </p:menuitem>
+                        <p:submenu label="Réparation" style="margin-right: 5px;margin-top: 4px">
+                            <p:menuitem value="Liste" outcome="/reparation/List.xhtml" target="content"  title="La liste" />
+                            <p:submenu label="Statistique">
+                                <p:menuitem value="MGX" outcome="/reparation/grapheMGX.xhtml" target="content"  title="statistique MGX" />
+                                <p:menuitem value="MTL" outcome="/reparation/grapheMTL.xhtml" target="content"  title="La liste" />
+                            </p:submenu>
+                        </p:submenu>
+                        
+                        <p:menuitem>
+                            <img  src="resources/images/autres.ico" alt="Autres icon" width="30px" height="30px" style="margin-top: 6px" /> 
+                        </p:menuitem>
+                        
+                        <p:submenu label="Autres" style="margin-right: 5px;margin-top: 4px; ">
+                            <p:menuitem value="Achat" title="Achat" />
+                            <p:menuitem value="Notification" outcome="/notification/List.xhtml" target="content"  title="La liste" />
+                            <p:menuitem value="Inventaire" outcome="/inventaireMateriel/List" target="content"/>
+                            <p:submenu label="Personnes" style="display:block; position:relative; float:right;">
+                                
+                                    <p:menuitem value="La liste" outcome="/user/List" target="content"/>
+                                    <p:menuitem value="Chercher" outcome="/user/ListSearch" target="content"/>
+                                
+                                <p:submenu label="Employes" style="cursor: auto;">
+                                    <p:menuitem value="La liste" outcome="/employe/List" target="content"/>
+                                    <p:menuitem value="Chercher" outcome="/employe/ListSearch" target="content"/>
+                                </p:submenu>
+                                <p:submenu label="Fournisseurs" style="cursor: auto;">
+                                    <p:menuitem value="La liste" outcome="/fournisseur/List" target="content"/>
+                                    <p:menuitem value="Chercher" outcome="/fournisseur/ListSearch" target="content"/>
+                                </p:submenu>
+                            </p:submenu>
+                            <p:submenu label="Structures">
+                                <p:submenu label="Directions">
+                                    <p:menuitem value="La liste" outcome="/direction/List" target="content"/>
+                                    <p:menuitem value="Chercher" outcome="/direction/ListSearch" target="content"/>
+                                </p:submenu>
+                                <p:submenu label="Départements">
+                                    <p:menuitem value="La liste" />
+                                    <p:menuitem value="Chercher" />
+                                </p:submenu>
+                                <p:submenu label="Services">
+                                    <p:menuitem value="La liste" />
+                                    <p:menuitem value="Chercher" />
+                                </p:submenu>
+                                <p:submenu label="Blocs">
+                                    <p:menuitem value="La liste" />
+                                    <p:menuitem value="Chercher" />
+                                </p:submenu>
+                                <p:submenu label="Bureau">
+                                    <p:menuitem value="La liste" containerStyle=" color : black ;"/>
+                                    <p:menuitem value="Chercher" />
+                                </p:submenu>
+                            </p:submenu>
+                            
+                            <p:submenu  label="Contact"  style="margin-right: 7px;margin-top: 4px ;">
+                                <c:forEach items="#{employeController.emailEmployeList()}" var="item">
+                                    <p:submenu label="#{item.nomE} #{item.prenomE}" >
+                                        <p:menuitem value="#{item.emailE}" />
+                                    </p:submenu>
+                                    <p:separator/>
+                                </c:forEach>
+                            </p:submenu>
+                            <p:menuitem oncomplete="PF('AboutUSDialog').show()" value="About" title="Des information sur l'application" />
+                            <p:separator/>
+                            <p:menuitem   value="Déconnecter" action="#{loginBean.logout()}" title="Déconnectez-vous" />
+                        
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+                </div></div>
+            </ui:define>
+            <ui:define name="body">
+                
+                <iframe name="content" height="475px" width="1170px"></iframe>
+                <ui:include src="aboutUS.xhtml"/>
+                <ui:include src="notificationDialog/serviceMGXNotif.xhtml"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BonSortieViewDlg" widgetVar="BonSortieViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleBon.ViewBonSortieTitle}">
+            <h:form id="BonSortieViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bonSortieController.selected != null}">
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_numBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.numBS}" title="#{bundleBon.ViewBonSortieTitle_numBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_dateBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.dateBS}" title="#{bundleBon.ViewBonSortieTitle_dateBS}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_employeBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.employeBS}" title="#{bundleBon.ViewBonSortieTitle_employeBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_departBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.departBS}" title="#{bundleBon.ViewBonSortieTitle_departBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_serviceBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.serviceBS}" title="#{bundleBon.ViewBonSortieTitle_serviceBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_blocBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.blocBS}" title="#{bundleBon.ViewBonSortieTitle_blocBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_bureauBS}"/>
+                        <h:outputText value="#{bonSortieController.selected.bureauBS}" title="#{bundleBon.ViewBonSortieTitle_bureauBS}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_codeMBE}"/>
+                        <h:outputText value="#{bonSortieController.selected.codeMBE}" title="#{bundleBon.ViewBonSortieTitle_codeMBE}"/>
+                        <h:outputText value="#{bundleBon.ViewBonSortieLabel_typeBE}"/>
+                        <h:outputText value="#{bonSortieController.selected.typeBE}" title="#{bundleBon.ViewBonSortieTitle_typeBE}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleBon.Close}" onclick="BonSortieViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

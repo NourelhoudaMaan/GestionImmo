@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FournisseurEditDlg" widgetVar="FournisseurEditDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFournisseurTitle}">
+            <h:form id="FournisseurEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fournisseurController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFournisseurLabel_idF}" for="idF" />
+                        <p:inputText id="idF" value="#{fournisseurController.selected.idF}" title="#{bundle.EditFournisseurTitle_idF}" readonly="true"/>
+                        <p:outputLabel value="#{bundle.EditFournisseurLabel_nomF}" for="nomF" />
+                        <p:inputText id="nomF" value="#{fournisseurController.selected.nomF}" title="#{bundle.EditFournisseurTitle_nomF}" required="true" requiredMessage="#{bundle.EditFournisseurRequiredMessage_nomF}"/>
+                        <p:outputLabel value="#{bundle.EditFournisseurLabel_prenomF}" for="prenomF" />
+                        <p:inputText id="prenomF" value="#{fournisseurController.selected.prenomF}" title="#{bundle.EditFournisseurTitle_prenomF}" required="true" requiredMessage="#{bundle.EditFournisseurRequiredMessage_prenomF}"/>
+                        <p:outputLabel value="#{bundle.EditFournisseurLabel_teleF}" for="teleF" />
+                        <p:inputText id="teleF" value="#{fournisseurController.selected.teleF}" title="#{bundle.EditFournisseurTitle_teleF}" required="true" requiredMessage="#{bundle.EditFournisseurRequiredMessage_teleF}"/>
+                        <p:outputLabel value="#{bundle.EditFournisseurLabel_faxF}" for="faxF" />
+                        <p:inputText id="faxF" value="#{fournisseurController.selected.faxF}" title="#{bundle.EditFournisseurTitle_faxF}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{fournisseurController.update}" value="#{bundle.Save}" update="display,:FournisseurListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FournisseurEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FournisseurEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

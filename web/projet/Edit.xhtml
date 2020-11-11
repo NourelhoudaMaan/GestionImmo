@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProjetEditDlg" widgetVar="ProjetEditDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProjetTitle}">
+            <h:form id="ProjetEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{projetController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProjetLabel_codeP}" for="codeP" />
+                        <p:inputText id="codeP" value="#{projetController.selected.codeP}" title="#{bundle.EditProjetTitle_codeP}" readonly="true"/>
+                        <p:outputLabel value="#{bundle.EditProjetLabel_libilleP}" for="libilleP" />
+                        <p:inputText id="libilleP" value="#{projetController.selected.libilleP}" title="#{bundle.EditProjetTitle_libilleP}" required="true" requiredMessage="#{bundle.EditProjetRequiredMessage_libilleP}"/>
+                        <p:outputLabel value="#{bundle.EditProjetLabel_directionP}" for="directionP" />
+                        <p:inputText id="directionP" value="#{projetController.selected.directionP}" title="#{bundle.EditProjetTitle_directionP}" required="true" requiredMessage="#{bundle.EditProjetRequiredMessage_directionP}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{projetController.update}" value="#{bundle.Save}" update="display,:ProjetListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProjetEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProjetEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

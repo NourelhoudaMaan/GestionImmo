@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <script src="resources/js/jquery.min.js"/> 
+        <script src="resources/js/bootstrap.min.js"/> 
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="resources/css/loginStyle.css"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <div class="rom">
+                    <div class="col-md-1"> </div>
+                    <div class="col-md-5">
+                        <h1 class="text-left"><span class=" glyphicon glyphicon-log-in "></span>Connectez-vous</h1>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"  ></span></span>
+                            <h:outputText value="Grade :" styleClass="outputText"/><br/>
+                            <h:inputText id="grade" value="#{loginBean.grade}" required="true" requiredMessage="#{bundle.loginGrade}" styleClass="form-control" /><br/><br/>
+                            <p:message for="grade" style="color: red ;"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            <h:outputText value="Mot de passe :" styleClass="outputText"/><br/>
+                            <h:inputSecret id="password" styleClass="form-control"  value="#{loginBean.password}" required="true" requiredMessage="#{bundle.loginPassword}"/><br/><br/>
+                            <p:message for="password" style="color: red ;"/>
+                        </div>
+                        <p:messages globalOnly="true"/><br></br>
+                        <h:commandButton class="btn btn-warning" value="Connecter" action="#{loginBean.LoginCompte}"/>
+
+                    </div>
+                </div>
+            </h:form>
+        </f:view>
+        <br />
+        <h:link outcome="/bonEntre/List" value="Show All BonEntre Items"/>
+    </h:body>
+
+</html>
+

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Gestion d'immobilisation</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+
+    <h:body>
+        <p:growl id="growl" life="3000" />
+        <p:layout fullPage="true" styleClass="navbar navbar-inverse" >
+            <p:layoutUnit position="north" size="62"  styleClass="noprint">
+                <ui:insert name="header"/>
+            </p:layoutUnit>
+            <p:layoutUnit position="center"   styleClass="printonly">
+                <ui:insert name="body">
+                <iframe name="content" height="330px" width="900px"></iframe></ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+       
+
+    </h:body>
+
+</html>

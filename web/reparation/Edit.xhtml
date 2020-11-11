@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReparationEditDlg" widgetVar="ReparationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleReparation.EditReparationTitle}">
+            <h:form id="ReparationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reparationController.selected != null}">
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_codeMR}" for="codeMR" />
+                        <p:inputText id="codeMR" value="#{reparationController.selected.codeMR}" title="#{bundleReparation.EditReparationTitle_codeMR}" required="true" requiredMessage="#{bundleReparation.EditReparationRequiredMessage_codeMR}"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_marckR}" for="marckR" />
+                        <p:inputText id="marckR" value="#{reparationController.selected.marckR}" title="#{bundleReparation.EditReparationTitle_marckR}" required="true" requiredMessage="#{bundleReparation.EditReparationRequiredMessage_marckR}"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_categorieMR}" for="categorieMR" />
+                        <p:inputText id="categorieMR" value="#{reparationController.selected.categorieMR}" title="#{bundleReparation.EditReparationTitle_categorieMR}" required="true" requiredMessage="#{bundleReparation.EditReparationRequiredMessage_categorieMR}"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_typeMR}" for="typeMR" />
+                        <p:inputText id="typeMR" value="#{reparationController.selected.typeMR}" title="#{bundleReparation.EditReparationTitle_typeMR}" required="true" requiredMessage="#{bundleReparation.EditReparationRequiredMessage_typeMR}"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_etatMR}" for="etatMR" />
+                        <p:inputText id="etatMR" value="#{reparationController.selected.etatMR}" title="#{bundleReparation.EditReparationTitle_etatMR}" required="true" requiredMessage="#{bundleReparation.EditReparationRequiredMessage_etatMR}"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_raparationR}" for="raparationR" />
+                        <p:inputText id="raparationR" value="#{reparationController.selected.raparationR}" title="#{bundleReparation.EditReparationTitle_raparationR}" />
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_dateDebutR}" for="dateDebutR" />
+                        <p:calendar id="dateDebutR" pattern="MM/dd/yyyy" value="#{reparationController.selected.dateDebutR}" title="#{bundleReparation.EditReparationTitle_dateDebutR}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleReparation.EditReparationLabel_dateFinR}" for="dateFinR" />
+                        <p:calendar id="dateFinR" pattern="MM/dd/yyyy" value="#{reparationController.selected.dateFinR}" title="#{bundleReparation.EditReparationTitle_dateFinR}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{reparationController.update}" value="#{bundleReparation.Save}" update="display,:ReparationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ReparationEditDialog');"/>
+                    <p:commandButton value="#{bundleReparation.Cancel}" onclick="ReparationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

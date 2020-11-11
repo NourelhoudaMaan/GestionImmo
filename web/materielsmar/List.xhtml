@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 500px">La liste du matériel</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="MaterielsmarListForm">
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{materielsmarController.items}" var="item"
+                                 selectionMode="single" selection="#{materielsmarController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idM}"
+                                 rows="4" scrollable="true" frozenColumns="4"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_articleM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_compteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.compteM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_desiniationM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.desiniationM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_numSerieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numSerieM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_codeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codeM}"/>
+                        </p:column>
+                        
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_marckM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marckM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_departM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_serviceM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_etatM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_bultaLivraison}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultaLivraison}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_bultatSortieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultatSortieM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_employeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.employeM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_dateAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateAq}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_valeurAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valeurAq}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_fournisseurM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fournisseurM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_directionM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.directionM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_siteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.siteM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_bureauM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bureauM}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_varStock}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.varStock}"/>
+                        </p:column>
+                        <p:column styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielsmarTitle_typeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeM}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundleMateriel.Create}" actionListener="#{materielsmarController.prepareCreate}" update=":MaterielsmarCreateForm" oncomplete="PF('MaterielsmarCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundleMateriel.View}" update=":MaterielsmarViewForm" oncomplete="PF('MaterielsmarViewDialog').show()" disabled="#{empty materielsmarController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundleMateriel.Edit}" update=":MaterielsmarEditForm" oncomplete="PF('MaterielsmarEditDialog').show()" disabled="#{empty materielsmarController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundleMateriel.Delete}" onclick="return confirm('Voulez-vous vraiment supprimer ce matériel ?')" actionListener="#{materielsmarController.destroy}" update=":growl,datalist" disabled="#{empty materielsmarController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

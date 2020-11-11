@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 500px">La liste d'inventaire</h2>
+        </ui:define>
+
+        <ui:define name="body">
+                <h:form id="InventaireMaterielListForm">
+                    <p:panel>
+                        <p:dataTable id="datalist" value="#{inventaireMaterielController.items}" var="item"
+                            selectionMode="single" selection="#{inventaireMaterielController.selected}"
+                            paginator="true" rowKey="#{item.idIM}" rows="4" scrollable="true"  frozenColumns="4">
+
+                            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_nbrIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nbrIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_marqueIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.marqueIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_typeIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.typeIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeAIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeAIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column >
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeBIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeBIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_equipeCIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.equipeCIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_codeIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.codeIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_directionIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.directionIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_departementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.departementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_serviceIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.serviceIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_etatIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.etatIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_numDeplacementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.numDeplacementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column >
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_dateDeplacementIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateDeplacementIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_directionDeplcmIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.directionDeplcmIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_blocDeplcm}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.blocDeplcm}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            <p:column styleClass="colon">
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundleInventaire.ListInventaireMaterielTitle_etageDeplcmIM}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.etageDeplcmIM}" style="color: #{item.equipeAIM eq 'positive' or item.equipeBIM eq 'positive' ? 'red' : ' '}"/>
+                            </p:column>
+                            
+                            <f:facet name="footer">
+                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundleInventaire.Create}" actionListener="#{inventaireMaterielController.prepareCreate}" update=":InventaireMaterielCreateForm" oncomplete="PF('InventaireMaterielCreateDialog').show()"/>
+                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundleInventaire.View}" update=":InventaireMaterielViewForm" oncomplete="PF('InventaireMaterielViewDialog').show()" disabled="#{empty inventaireMaterielController.selected}"/>
+                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundleInventaire.Edit}" update=":InventaireMaterielEditForm" oncomplete="PF('InventaireMaterielEditDialog').show()" disabled="#{empty inventaireMaterielController.selected}"/>
+                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundleInventaire.Delete}" onclick="return confirm('Voulez-vous vraiment supprimer cet inventaire ?')" actionListener="#{inventaireMaterielController.destroy}" update=":growl,datalist" disabled="#{empty inventaireMaterielController.selected}"/>
+                            </f:facet>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

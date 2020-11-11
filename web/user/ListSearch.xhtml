@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUserTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="UserListForm">
+                <p:panel header="#{bundle.ListUserTitle}">
+                    <p:dataTable id="datalist" value="#{userController.items}" var="item"
+                                 selectionMode="single" selection="#{userController.selected}"
+                                 paginator="true" rowKey="#{item.idU}" rows="5"
+                                 filteredValue="#{userController.filteredUserlList}"
+                                 widgetVar="MaterielWidget">
+        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Checher:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('MaterielWidget').filter()" style="width:300px" placeholder="Rechecher ici"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column filterBy="#{item.gradeU}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUserTitle_gradeU}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gradeU}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.password}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUserTitle_password}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.password}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ReparationViewDlg" widgetVar="ReparationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleReparation.ViewReparationTitle}">
+            <h:form id="ReparationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{reparationController.selected != null}">
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_idR}"/>
+                        <h:outputText value="#{reparationController.selected.idR}" title="#{bundleReparation.ViewReparationTitle_idR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_codeMR}"/>
+                        <h:outputText value="#{reparationController.selected.codeMR}" title="#{bundleReparation.ViewReparationTitle_codeMR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_marckR}"/>
+                        <h:outputText value="#{reparationController.selected.marckR}" title="#{bundleReparation.ViewReparationTitle_marckR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_categorieMR}"/>
+                        <h:outputText value="#{reparationController.selected.categorieMR}" title="#{bundleReparation.ViewReparationTitle_categorieMR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_typeMR}"/>
+                        <h:outputText value="#{reparationController.selected.typeMR}" title="#{bundleReparation.ViewReparationTitle_typeMR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_etatMR}"/>
+                        <h:outputText value="#{reparationController.selected.etatMR}" title="#{bundleReparation.ViewReparationTitle_etatMR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_raparationR}"/>
+                        <h:outputText value="#{reparationController.selected.raparationR}" title="#{bundleReparation.ViewReparationTitle_raparationR}"/>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_dateDebutR}"/>
+                        <h:outputText value="#{reparationController.selected.dateDebutR}" title="#{bundleReparation.ViewReparationTitle_dateDebutR}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleReparation.ViewReparationLabel_dateFinR}"/>
+                        <h:outputText value="#{reparationController.selected.dateFinR}" title="#{bundleReparation.ViewReparationTitle_dateFinR}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleReparation.Close}" onclick="ReparationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

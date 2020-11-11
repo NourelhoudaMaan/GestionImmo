@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterielsmarViewDlg" widgetVar="MaterielsmarViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleMateriel.ViewMaterielsmarTitle}">
+            <h:form id="MaterielsmarViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="6" rendered="#{materielsmarController.selected != null}">
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_idM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.idM}" title="#{bundleMateriel.ViewMaterielsmarTitle_idM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_articleM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.articleM}" title="#{bundleMateriel.ViewMaterielsmarTitle_articleM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_compteM}" style="font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.compteM}" title="#{bundleMateriel.ViewMaterielsmarTitle_compteM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_desiniationM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.desiniationM}" title="#{bundleMateriel.ViewMaterielsmarTitle_desiniationM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_codeM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.codeM}" title="#{bundleMateriel.ViewMaterielsmarTitle_codeM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_numSerieM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.numSerieM}" title="#{bundleMateriel.ViewMaterielsmarTitle_numSerieM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_marckM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.marckM}" title="#{bundleMateriel.ViewMaterielsmarTitle_marckM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_departM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.departM}" title="#{bundleMateriel.ViewMaterielsmarTitle_departM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_serviceM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.serviceM}" title="#{bundleMateriel.ViewMaterielsmarTitle_serviceM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_etatM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.etatM}" title="#{bundleMateriel.ViewMaterielsmarTitle_etatM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_bultaLivraison}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.bultaLivraison}" title="#{bundleMateriel.ViewMaterielsmarTitle_bultaLivraison}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_bultatSortieM}" style="font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.bultatSortieM}" title="#{bundleMateriel.ViewMaterielsmarTitle_bultatSortieM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_employeM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.employeM}" title="#{bundleMateriel.ViewMaterielsmarTitle_employeM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_dateAq}" style="font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.dateAq}" title="#{bundleMateriel.ViewMaterielsmarTitle_dateAq}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_valeurAq}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.valeurAq}" title="#{bundleMateriel.ViewMaterielsmarTitle_valeurAq}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_fournisseurM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.fournisseurM}" title="#{bundleMateriel.ViewMaterielsmarTitle_fournisseurM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_directionM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.directionM}" title="#{bundleMateriel.ViewMaterielsmarTitle_directionM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_siteM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.siteM}" title="#{bundleMateriel.ViewMaterielsmarTitle_siteM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_bureauM}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.bureauM}" title="#{bundleMateriel.ViewMaterielsmarTitle_bureauM}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_varStock}" style=" font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.varStock}" title="#{bundleMateriel.ViewMaterielsmarTitle_varStock}"/>
+                        <h:outputText value="#{bundleMateriel.ViewMaterielsmarLabel_typeM}" style="font-size: large"/>
+                        <h:outputText value="#{materielsmarController.selected.typeM}" title="#{bundleMateriel.ViewMaterielsmarTitle_typeM}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleMateriel.Close}" onclick="MaterielsmarViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

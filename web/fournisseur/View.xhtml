@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FournisseurViewDlg" widgetVar="FournisseurViewDialog" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFournisseurTitle}">
+            <h:form id="FournisseurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{fournisseurController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFournisseurLabel_idF}"/>
+                        <h:outputText value="#{fournisseurController.selected.idF}" title="#{bundle.ViewFournisseurTitle_idF}"/>
+                        <h:outputText value="#{bundle.ViewFournisseurLabel_nomF}"/>
+                        <h:outputText value="#{fournisseurController.selected.nomF}" title="#{bundle.ViewFournisseurTitle_nomF}"/>
+                        <h:outputText value="#{bundle.ViewFournisseurLabel_prenomF}"/>
+                        <h:outputText value="#{fournisseurController.selected.prenomF}" title="#{bundle.ViewFournisseurTitle_prenomF}"/>
+                        <h:outputText value="#{bundle.ViewFournisseurLabel_teleF}"/>
+                        <h:outputText value="#{fournisseurController.selected.teleF}" title="#{bundle.ViewFournisseurTitle_teleF}"/>
+                        <h:outputText value="#{bundle.ViewFournisseurLabel_faxF}"/>
+                        <h:outputText value="#{fournisseurController.selected.faxF}" title="#{bundle.ViewFournisseurTitle_faxF}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FournisseurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

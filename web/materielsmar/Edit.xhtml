@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterielsmarEditDlg" widgetVar="MaterielsmarEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleMateriel.EditMaterielsmarTitle}">
+            <h:form id="MaterielsmarEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="6" rendered="#{materielsmarController.selected != null}">
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_idM}" for="idM" />
+                        <p:inputText id="idM" value="#{materielsmarController.selected.idM}" title="#{bundleMateriel.EditMaterielsmarTitle_idM}" required="true" requiredMessage="#{bundleMateriel.EditMaterielsmarRequiredMessage_idM}"/>
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_articleM}" for="articleM" />
+                        <p:inputText id="articleM" value="#{materielsmarController.selected.articleM}" title="#{bundleMateriel.EditMaterielsmarTitle_articleM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_compteM}" for="compteM" />
+                        <p:inputText id="compteM" value="#{materielsmarController.selected.compteM}" title="#{bundleMateriel.EditMaterielsmarTitle_compteM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_desiniationM}" for="desiniationM" />
+                        <p:inputText id="desiniationM" value="#{materielsmarController.selected.desiniationM}" title="#{bundleMateriel.EditMaterielsmarTitle_desiniationM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_codeM}" for="codeM" />
+                        <p:inputText id="codeM" value="#{materielsmarController.selected.codeM}" title="#{bundleMateriel.EditMaterielsmarTitle_codeM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_numSerieM}" for="numSerieM" />
+                        <p:inputText id="numSerieM" value="#{materielsmarController.selected.numSerieM}" title="#{bundleMateriel.EditMaterielsmarTitle_numSerieM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_marckM}" for="marckM" />
+                        <p:inputText id="marckM" value="#{materielsmarController.selected.marckM}" title="#{bundleMateriel.EditMaterielsmarTitle_marckM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_departM}" for="departM" />
+                        <p:inputText id="departM" value="#{materielsmarController.selected.departM}" title="#{bundleMateriel.EditMaterielsmarTitle_departM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_serviceM}" for="serviceM" />
+                        <p:inputText id="serviceM" value="#{materielsmarController.selected.serviceM}" title="#{bundleMateriel.EditMaterielsmarTitle_serviceM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_etatM}" for="etatM" />
+                        <p:inputText id="etatM" value="#{materielsmarController.selected.etatM}" title="#{bundleMateriel.EditMaterielsmarTitle_etatM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_bultaLivraison}" for="bultaLivraison" />
+                        <p:inputText id="bultaLivraison" value="#{materielsmarController.selected.bultaLivraison}" title="#{bundleMateriel.EditMaterielsmarTitle_bultaLivraison}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_bultatSortieM}" for="bultatSortieM" />
+                        <p:inputText id="bultatSortieM" value="#{materielsmarController.selected.bultatSortieM}" title="#{bundleMateriel.EditMaterielsmarTitle_bultatSortieM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_employeM}" for="employeM" />
+                        <p:inputText id="employeM" value="#{materielsmarController.selected.employeM}" title="#{bundleMateriel.EditMaterielsmarTitle_employeM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_dateAq}" for="dateAq" />
+                        <p:calendar id="dateAq" pattern="MM/dd/yyyy" value="#{materielsmarController.selected.dateAq}" title="#{bundleMateriel.EditMaterielsmarTitle_dateAq}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_valeurAq}" for="valeurAq" />
+                        <p:inputText id="valeurAq" value="#{materielsmarController.selected.valeurAq}" title="#{bundleMateriel.EditMaterielsmarTitle_valeurAq}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_fournisseurM}" for="fournisseurM" />
+                        <p:inputText id="fournisseurM" value="#{materielsmarController.selected.fournisseurM}" title="#{bundleMateriel.EditMaterielsmarTitle_fournisseurM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_directionM}" for="directionM" />
+                        <p:inputText id="directionM" value="#{materielsmarController.selected.directionM}" title="#{bundleMateriel.EditMaterielsmarTitle_directionM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_siteM}" for="siteM" />
+                        <p:inputText id="siteM" value="#{materielsmarController.selected.siteM}" title="#{bundleMateriel.EditMaterielsmarTitle_siteM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_bureauM}" for="bureauM" />
+                        <p:inputText id="bureauM" value="#{materielsmarController.selected.bureauM}" title="#{bundleMateriel.EditMaterielsmarTitle_bureauM}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_varStock}" for="varStock" />
+                        <p:inputText id="varStock" value="#{materielsmarController.selected.varStock}" title="#{bundleMateriel.EditMaterielsmarTitle_varStock}" />
+                        <p:outputLabel value="#{bundleMateriel.EditMaterielsmarLabel_typeM}" for="typeM" />
+                        <p:inputText id="typeM" value="#{materielsmarController.selected.typeM}" title="#{bundleMateriel.EditMaterielsmarTitle_typeM}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{materielsmarController.update}" value="#{bundleMateriel.Save}" update="display,:MaterielsmarListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaterielsmarEditDialog');"/>
+                    <p:commandButton value="#{bundleMateriel.Cancel}" onclick="MaterielsmarEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

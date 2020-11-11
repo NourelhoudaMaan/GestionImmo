@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventaireMaterielEditDlg" widgetVar="InventaireMaterielEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleInventaire.EditInventaireMaterielTitle}">
+            <h:form id="InventaireMaterielEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="4" rendered="#{inventaireMaterielController.selected != null}">
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_nbrIM}" for="nbrIM" />
+                        <p:inputText id="nbrIM" value="#{inventaireMaterielController.selected.nbrIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_nbrIM}" required="true" requiredMessage="#{bundleInventaire.EditInventaireMaterielRequiredMessage_nbrIM}"/>
+                        
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_marqueIM}" for="marqueIM" />
+                        <p:inputText id="marqueIM" value="#{inventaireMaterielController.selected.marqueIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_marqueIM}" required="true" requiredMessage="#{bundleInventaire.EditInventaireMaterielRequiredMessage_marqueIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_typeIM}" for="typeIM" />
+                        <p:inputText id="typeIM" value="#{inventaireMaterielController.selected.typeIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_typeIM}" required="true" requiredMessage="#{bundleInventaire.EditInventaireMaterielRequiredMessage_typeIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_equipeAIM}" for="equipeAIM" />
+                        <p:inputText id="equipeAIM" value="#{inventaireMaterielController.selected.equipeAIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_equipeAIM}" required="true" requiredMessage="#{bundleInventaire.EditInventaireMaterielRequiredMessage_equipeAIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_equipeBIM}" for="equipeBIM" />
+                        <p:inputText id="equipeBIM" value="#{inventaireMaterielController.selected.equipeBIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_equipeBIM}" required="true" requiredMessage="#{bundleInventaire.EditInventaireMaterielRequiredMessage_equipeBIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_equipeCIM}" for="equipeCIM" />
+                        <p:inputText id="equipeCIM" value="#{inventaireMaterielController.selected.equipeCIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_equipeCIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_codeIM}" for="codeIM" />
+                        <p:inputText id="codeIM" value="#{inventaireMaterielController.selected.codeIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_codeIM}" />
+                        
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_directionIM}" for="directionIM" />
+                        <p:inputText id="directionIM" value="#{inventaireMaterielController.selected.directionIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_directionIM}"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_departementIM}" for="departementIM" />
+                        <p:inputText id="departementIM" value="#{inventaireMaterielController.selected.departementIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_departementIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_serviceIM}" for="serviceIM" />
+                        <p:inputText id="serviceIM" value="#{inventaireMaterielController.selected.serviceIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_serviceIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_etatIM}" for="etatIM" />
+                        <p:inputText id="etatIM" value="#{inventaireMaterielController.selected.etatIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_etatIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_numDeplacementIM}" for="numDeplacementIM" />
+                        <p:inputText id="numDeplacementIM" value="#{inventaireMaterielController.selected.numDeplacementIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_numDeplacementIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_dateDeplacementIM}" for="dateDeplacementIM" />
+                        <p:calendar id="dateDeplacementIM" pattern="MM/dd/yyyy" value="#{inventaireMaterielController.selected.dateDeplacementIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_dateDeplacementIM}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_directionDeplcmIM}" for="directionDeplcmIM" />
+                        <p:inputText id="directionDeplcmIM" value="#{inventaireMaterielController.selected.directionDeplcmIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_directionDeplcmIM}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_blocDeplcm}" for="blocDeplcm" />
+                        <p:inputText id="blocDeplcm" value="#{inventaireMaterielController.selected.blocDeplcm}" title="#{bundleInventaire.EditInventaireMaterielTitle_blocDeplcm}" />
+                        <p:outputLabel value="#{bundleInventaire.EditInventaireMaterielLabel_etageDeplcmIM}" for="etageDeplcmIM" />
+                        <p:inputText id="etageDeplcmIM" value="#{inventaireMaterielController.selected.etageDeplcmIM}" title="#{bundleInventaire.EditInventaireMaterielTitle_etageDeplcmIM}" />
+                        </p:panelGrid>
+                    <p:commandButton actionListener="#{inventaireMaterielController.update}" value="#{bundleInventaire.Save}" update="display,:InventaireMaterielListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InventaireMaterielEditDialog');"/>
+                    <p:commandButton value="#{bundleInventaire.Cancel}" onclick="InventaireMaterielEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

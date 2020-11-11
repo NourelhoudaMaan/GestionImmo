@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="NotificationViewDlg" widgetVar="NotificationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleNotification.ViewNotificationTitle}">
+            <h:form id="NotificationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{notificationController.selected != null}">
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_idN}"/>
+                        <h:outputText value="#{notificationController.selected.idN}" title="#{bundleNotification.ViewNotificationTitle_idN}"/>
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_senderN}"/>
+                        <h:outputText value="#{notificationController.selected.senderN}" title="#{bundleNotification.ViewNotificationTitle_senderN}"/>
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_receiverN}"/>
+                        <h:outputText value="#{notificationController.selected.receiverN}" title="#{bundleNotification.ViewNotificationTitle_receiverN}"/>
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_objectMsgN}"/>
+                        <h:outputText value="#{notificationController.selected.objectMsgN}" title="#{bundleNotification.ViewNotificationTitle_objectMsgN}"/>
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_bodyMsgN}"/>
+                        <h:outputText value="#{notificationController.selected.bodyMsgN}" title="#{bundleNotification.ViewNotificationTitle_bodyMsgN}"/>
+                        <h:outputText value="#{bundleNotification.ViewNotificationLabel_dateN}"/>
+                        <h:outputText value="#{notificationController.selected.dateN}" title="#{bundleNotification.ViewNotificationTitle_dateN}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundleNotification.Close}" onclick="NotificationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

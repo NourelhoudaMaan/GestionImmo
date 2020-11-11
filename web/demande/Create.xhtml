@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+        <div class="rom">
+            <div class="col-md-1"> </div>
+                <div class="col-md-5"> 
+                    <table border="2" style="margin-left: 10px;">
+                        <tr style="background-color:#ffff9e;">
+                           <th rowspan="3" ><img src="../resources/images/C1.jpg" alt="logo du GCB " /> </th>
+                           <th  width="600px" >
+                                System Managment De Qualité
+                            </th>
+                            <th width="400px">
+                               IMP 661.A
+                            </th>
+                        </tr>
+                        <tr style="background-color: #ffff9e;">
+                            <th rowspan="2" >FEUILLE DE ROUTE <br/>LOCATION MATERIEL</th>
+                            <th> Date d'application <br/> 30/06/2020</th>
+                        </tr>
+                        <tr style="background-color: #ffff9e;">
+                            <th> Page 1 Sur1 </th>
+                        </tr>
+                    </table><br/>
+                    <fieldset style="padding-left: 10px;">
+                        <h:form class="form-signin" style="margin-left: 10px;">
+                            <table border="2" width="1065px" style="background-color:#DCDCDC;">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                </tr>
+                                <tr>
+                                    <td align="center"><h:inputText id="nom" value="#{demandeController.selected.nom}" title="#{bundleDemande.CreateDemandeTitle_nom}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_nom}" /></td>
+                                    <td align="center"><h:inputText id="prénom" value="#{demandeController.selected.prénom}" title="#{bundleDemande.CreateDemandeTitle_prénom}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_prénom}"/></td>
+                                </tr>
+                            </table><br/>
+                            <table border="2" width="1065px" style="background-color:#DCDCDC;">
+                                <tr>
+                                    <th> Structeur Emettrice </th> 
+                                    <th style="width:100;"> Date </th>
+                                    <th> Réf: </th>
+                                </tr>
+                                <tr>
+                                    <td align="center"><h:inputText id="stuctureD" value="#{demandeController.selected.stuctureD}" title="#{bundleDemande.CreateDemandeTitle_stuctureD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_stuctureD}"/></td> 
+                                    <td align="center"><h:inputText id="dateD" value="#{demandeController.selected.dateD}" title="#{bundleDemande.CreateDemandeTitle_dateD}" >
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:inputText>
+                                    </td>
+                                    <td align="center"><h:inputText id="refferenceD" value="#{demandeController.selected.refferenceD}" title="#{bundleDemande.CreateDemandeTitle_refferenceD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_refferenceD}"/></td>
+                                </tr>
+                            </table><br/>
+                            <table border="2" width="1065px" style="background-color:#DCDCDC;">
+                                <tr>
+                                    <th> Materiel demande  pour  <br/>La location</th> 
+                                    <th> Type <br/> Capacité  </th>
+                                    <th> Qté </th>
+                                    <th> Durée </th>
+                                    <th> Projet <br/> D'affectation  </th>
+                                    <th> Nature Des Travaux <br/> Et Quntitatif </th>
+                                </tr> 
+                                <tr>
+                                    <td align="center"><h:inputText id="materielD" value="#{demandeController.selected.materielD}" title="#{bundleDemande.CreateDemandeTitle_materielD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_materielD}"/></td> 
+                                    <td align="center"><h:inputText id="typeD" value="#{demandeController.selected.typeD}" title="#{bundleDemande.CreateDemandeTitle_typeD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_typeD}"/></td>
+                                    <td align="center"><h:inputText id="qteD" value="#{demandeController.selected.qteD}" title="#{bundleDemande.CreateDemandeTitle_qteD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_qteD}"/></td>
+                                    <td align="center"><h:inputText id="dureeD" value="#{demandeController.selected.dureeD}" title="#{bundleDemande.CreateDemandeTitle_dureeD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_dureeD}"/></td> 
+                                    <td align="center"><h:inputText id="projetEffectD" value="#{demandeController.selected.projetEffectD}" title="#{bundleDemande.CreateDemandeTitle_projetEffectD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_projetEffectD}"/></td>
+                                    <td align="center"><h:inputText id="natureTrvD" value="#{demandeController.selected.natureTrvD}" title="#{bundleDemande.CreateDemandeTitle_natureTrvD}" required="true" requiredMessage="#{bundleDemande.CreateDirectionRequiredMessage_natureTrvD}"/></td>
+                                </tr>
+                            </table><br/>
+                            <p:commandButton action="#{demandeController.create}" value="#{bundleDemande.CreateDemandeSaveLink}" style=" margin-left:500px ;font-size: 16px  ;margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: #fff ;"/>
+                        </h:form>
+                    </fieldset>
+                </div>
+        </div>
+    </ui:composition>
+
+</html>

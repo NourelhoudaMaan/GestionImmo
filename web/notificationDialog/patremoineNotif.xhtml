@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition>
+
+        <p:dialog id="patremoineNotifDlg" widgetVar="patremoineNotifDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="La dérnière notification"/></h4>
+                    <p:dataTable value="#{notificationController.patrimoineLastReceiver()}" var="item">
+                      
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Expéditeur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Récepteur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Objet"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Message"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton value="OK" onclick="patremoineNotifDlg.hide()"/>
+                </h:form>
+           
+        </p:dialog>
+        
+        <p:dialog id="patremoineNotifTodayDlg" widgetVar="patremoineNotifTodayDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="Les notification d'aujourd'huit"/></h4>
+                    <p:dataTable value="#{notificationController.patrimoineTodayReceiver()}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Expéditeur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Récepteur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Objet"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Message"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton value="OK" onclick="patremoineNotifTodayDlg.hide()"/>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog id="patremoineAllNotifDlg" widgetVar="patremoineAllNotifDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="Toutes les notifications"/></h4>
+                    <p:dataTable value="#{notificationController.patrimoineAllReceiver()}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Expéditeur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Récepteur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Objet"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Message"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                <p:commandButton value="OK" onclick="patremoineAllNotifDlg.hide()"/>
+                </h:form>
+        </p:dialog>
+        </ui:composition>
+</html>
+

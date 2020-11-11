@@ -1,0 +1,62 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image:url(../images/4.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+     font-family: Times New Roman ; 
+    }
+             
+.col-md-5{
+    width: 500px;
+    margin-top: 70px ;
+    margin-left:200px ;
+    position: center ;
+    height: 400px ;
+    background: rgba (0,0,0,0.6);
+    border-radius: 10px 0px 10px 0px;
+    box-shadow: -1px 1px 60px 10px black inset;
+}
+
+.glyphicon-log-in{ font-size:40px; color: white; padding: 10px; }
+
+h4{font-size: 22px; margin-top: 30px; margin-left: 20px; color: white; }
+     
+.h1{ font-family:Times New Roman;  font-size: 40px; color: black ; text-shadow: 1px 1px 10px black; }
+    
+.input-group{ margin-top: 20px; }
+ 
+.input-group-addon{ background: transparent; border-radius: 0px; color: black; }    
+    
+.form-control{
+    background: transparent;
+    border-radius: 0px;
+    font-size: 21px;
+    height: 40px;
+    color:white;
+    border-left: 0px;
+}
+           
+input[type="checkbox"]{ margin-top: 20px; }          
+small{ font-size: 18px; color:white; }
+
+p{
+    font-size: 15px;
+    color:white;
+    margin-left: 300px;
+    margin-top: 40px;
+}
+
+.btn-warning{
+    width: 150px;
+    margin-left: 160px;
+    margin-top: 5px;
+    font-size:18px;
+    border-radius: 1000px;
+}
+
+.ui-icon{
+    size: 10em ;
+}          

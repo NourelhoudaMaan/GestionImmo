@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFournisseurTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="FournisseurListForm">
+                <p:panel header="#{bundle.ListFournisseurTitle}">
+                    <p:dataTable id="datalist" value="#{fournisseurController.items}" var="item"
+                                 selectionMode="single" selection="#{fournisseurController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idF}"
+                                 rows="5"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFournisseurTitle_idF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idF}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFournisseurTitle_nomF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomF}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFournisseurTitle_prenomF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenomF}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFournisseurTitle_teleF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.teleF}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFournisseurTitle_faxF}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.faxF}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{fournisseurController.prepareCreate}" update=":FournisseurCreateForm" oncomplete="PF('FournisseurCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":FournisseurViewForm" oncomplete="PF('FournisseurViewDialog').show()" disabled="#{empty fournisseurController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":FournisseurEditForm" oncomplete="PF('FournisseurEditDialog').show()" disabled="#{empty fournisseurController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" onclick="return confirm('Voulez-vous vraiment supprimer le fournisseur ?')" actionListener="#{fournisseurController.destroy}" update=":growl,datalist" disabled="#{empty fournisseurController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

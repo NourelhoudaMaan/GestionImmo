@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 400px">Chercher dans la liste du matériel</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="MaterielListForm">
+                    <p:dataTable id="datalist" value="#{materielsmarController.listeDemandeMGX()}" var="item"
+                                 selectionMode="single" selection="#{materielsmarController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idM}"
+                                 rows="5"
+                                 filteredValue="#{materielsmarController.filteredMaterielList}"
+                                 widgetVar="MaterielWidget"    scrollable="true"  frozenColumns="4">
+        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Checher:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('MaterielWidget').filter()" style="width:300px" placeholder="Rechecher ici"/>
+                            </p:outputPanel>
+                        </f:facet>
+                        <p:column filterBy="#{item.idM}" filterMatchMode="contains" styleClass="colon" >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_idM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.articleM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_articleM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.articleM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.compteM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_compteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.compteM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.desiniationM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_desiniationM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.desiniationM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.codeM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_codeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codeM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.numSerieM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_numSerieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numSerieM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.marckM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_marckM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marckM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.departM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_departM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.departM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.serviceM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_serviceM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.etatM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_etatM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.etatM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.bultaLivraison}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_bultaLivraison}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultaLivraison}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.bultatSortieM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_bultatSortieM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bultatSortieM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.employeM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_employeM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.employeM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.dateAq}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_dateAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateAq}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.valeurAq}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_valeurAq}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valeurAq}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.fournisseurM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_fournisseurM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fournisseurM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.directionM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_directionM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.directionM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.siteM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_siteM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.siteM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.bureauM}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_bureauM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bureauM}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.varStock}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundleMateriel.ListMaterielTitle_varStock}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.varStock}"/>
+                        </p:column>
+                    </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BonEntreCreateDlg" widgetVar="BonEntreCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleBon.CreateBonEntreTitle}">
+            <h:form id="BonEntreCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bonEntreController.selected != null}">
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_numFacteur}" for="numFacteur" />
+                        <p:inputText id="numFacteur" value="#{bonEntreController.selected.numFacteur}" title="#{bundleBon.CreateBonEntreTitle_numFacteur}" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_numFacteur}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_dateFacteur}" for="dateFacteur" />
+                        <p:calendar id="dateFacteur" pattern="MM/dd/yyyy" value="#{bonEntreController.selected.dateFacteur}" title="#{bundleBon.EditBonEntreTitle_dateFacteur}"  showOn="button" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_dateFacteur}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_fournBE}" for="fournBE" />
+                        <p:inputText id="fournBE" value="#{bonEntreController.selected.fournBE}" title="#{bundleBon.CreateBonEntreTitle_fournBE}" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_fournBE}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_dateBE}" for="dateBE" />
+                        <p:calendar id="dateBE" pattern="MM/dd/yyyy" value="#{bonEntreController.selected.dateBE}" title="#{bundleBon.EditBonEntreTitle_dateBE}"  showOn="button" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_dateBE}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_categorieMBE}" for="categorieMBE" />
+                        <p:inputText id="categorieMBE" value="#{bonEntreController.selected.categorieMBE}" title="#{bundleBon.CreateBonEntreTitle_categorieMBE}" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_categorieMBE}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_marqueMBE}" for="marqueMBE" />
+                        <p:inputText id="marqueMBE" value="#{bonEntreController.selected.marqueMBE}" title="#{bundleBon.CreateBonEntreTitle_marqueMBE}" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_marqueMBE}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonEntreLabel_typeBE}" for="typeBE" />
+                        <p:inputText id="typeBE" value="#{bonEntreController.selected.typeBE}" title="#{bundleBon.CreateBonEntreTitle_typeBE}" required="true" requiredMessage="#{bundleBon.CreateBonEntreRequiredMessage_typeBE}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bonEntreController.create}" value="#{bundleBon.Save}" update="display,:BonEntreListForm:datalist,:growl" oncomplete="handleSubmit(args,'BonEntreCreateDialog');"/>
+                    <p:commandButton value="#{bundleBon.Cancel}" onclick="BonEntreCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

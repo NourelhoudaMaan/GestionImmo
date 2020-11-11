@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BonSortieEditDlg" widgetVar="BonSortieEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleBon.EditBonSortieTitle}">
+            <h:form id="BonSortieEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bonSortieController.selected != null}">
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_numBS}" for="numBS" />
+                        <p:inputText id="numBS" value="#{bonSortieController.selected.numBS}" title="#{bundleBon.EditBonSortieTitle_numBS}" readonly="true" />
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_dateBS}" for="dateBS" />
+                        <p:calendar id="dateBS" pattern="MM/dd/yyyy" value="#{bonSortieController.selected.dateBS}" title="#{bundleBon.EditBonSortieTitle_dateBS}"  showOn="button" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_dateBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_employeBS}" for="employeBS" />
+                        <p:inputText id="employeBS" value="#{bonSortieController.selected.employeBS}" title="#{bundleBon.EditBonSortieTitle_employeBS}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_employeBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_departBS}" for="departBS" />
+                        <p:inputText id="departBS" value="#{bonSortieController.selected.departBS}" title="#{bundleBon.EditBonSortieTitle_departBS}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_departBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_serviceBS}" for="serviceBS" />
+                        <p:inputText id="serviceBS" value="#{bonSortieController.selected.serviceBS}" title="#{bundleBon.EditBonSortieTitle_serviceBS}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_serviceBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_blocBS}" for="blocBS" />
+                        <p:inputText id="blocBS" value="#{bonSortieController.selected.blocBS}" title="#{bundleBon.EditBonSortieTitle_blocBS}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_blocBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_bureauBS}" for="bureauBS" />
+                        <p:inputText id="bureauBS" value="#{bonSortieController.selected.bureauBS}" title="#{bundleBon.EditBonSortieTitle_bureauBS}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_bureauBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_codeMBE}" for="codeMBE" />
+                        <p:inputText id="codeMBE" value="#{bonSortieController.selected.codeMBE}" title="#{bundleBon.EditBonSortieTitle_codeMBE}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_codeBS}"/>
+                        <p:outputLabel value="#{bundleBon.EditBonSortieLabel_typeBE}" for="typeBE" />
+                        <p:inputText id="typeBE" value="#{bonSortieController.selected.typeBE}" title="#{bundleBon.EditBonSortieTitle_typeBE}" required="true" requiredMessage="#{bundleBon.EditBonSortieRequiredMessage_typeBS}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bonSortieController.update}" value="#{bundleBon.Save}" update="display,:BonSortieListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BonSortieEditDialog');"/>
+                    <p:commandButton value="#{bundleBon.Cancel}" onclick="BonSortieEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

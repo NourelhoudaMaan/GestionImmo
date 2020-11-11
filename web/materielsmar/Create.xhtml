@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterielsmarCreateDlg" widgetVar="MaterielsmarCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleMateriel.CreateMaterielsmarTitle}">
+            <h:form id="MaterielsmarCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{materielsmarController.selected != null}">
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_idM}" for="idM" />
+                        <p:inputText id="idM" value="#{materielsmarController.selected.idM}" title="#{bundleMateriel.CreateMaterielsmarTitle_idM}" required="true" requiredMessage="#{bundleMateriel.CreateMaterielsmarRequiredMessage_idM}"/>
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_articleM}" for="articleM" />
+                        <p:inputText id="articleM" value="#{materielsmarController.selected.articleM}" title="#{bundleMateriel.CreateMaterielsmarTitle_articleM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_compteM}" for="compteM" />
+                        <p:inputText id="compteM" value="#{materielsmarController.selected.compteM}" title="#{bundleMateriel.CreateMaterielsmarTitle_compteM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_desiniationM}" for="desiniationM" />
+                        <p:inputText id="desiniationM" value="#{materielsmarController.selected.desiniationM}" title="#{bundleMateriel.CreateMaterielsmarTitle_desiniationM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_codeM}" for="codeM" />
+                        <p:inputText id="codeM" value="#{materielsmarController.selected.codeM}" title="#{bundleMateriel.CreateMaterielsmarTitle_codeM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_numSerieM}" for="numSerieM" />
+                        <p:inputText id="numSerieM" value="#{materielsmarController.selected.numSerieM}" title="#{bundleMateriel.CreateMaterielsmarTitle_numSerieM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_marckM}" for="marckM" />
+                        <p:inputText id="marckM" value="#{materielsmarController.selected.marckM}" title="#{bundleMateriel.CreateMaterielsmarTitle_marckM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_departM}" for="departM" />
+                        <p:inputText id="departM" value="#{materielsmarController.selected.departM}" title="#{bundleMateriel.CreateMaterielsmarTitle_departM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_serviceM}" for="serviceM" />
+                        <p:inputText id="serviceM" value="#{materielsmarController.selected.serviceM}" title="#{bundleMateriel.CreateMaterielsmarTitle_serviceM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_etatM}" for="etatM" />
+                        <p:inputText id="etatM" value="#{materielsmarController.selected.etatM}" title="#{bundleMateriel.CreateMaterielsmarTitle_etatM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_bultaLivraison}" for="bultaLivraison" />
+                        <p:inputText id="bultaLivraison" value="#{materielsmarController.selected.bultaLivraison}" title="#{bundleMateriel.CreateMaterielsmarTitle_bultaLivraison}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_bultatSortieM}" for="bultatSortieM" />
+                        <p:inputText id="bultatSortieM" value="#{materielsmarController.selected.bultatSortieM}" title="#{bundleMateriel.CreateMaterielsmarTitle_bultatSortieM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_employeM}" for="employeM" />
+                        <p:inputText id="employeM" value="#{materielsmarController.selected.employeM}" title="#{bundleMateriel.CreateMaterielsmarTitle_employeM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_dateAq}" for="dateAq" />
+                        <p:calendar id="dateAq" pattern="MM/dd/yyyy" value="#{materielsmarController.selected.dateAq}" title="#{bundleMateriel.EditMaterielsmarTitle_dateAq}"  showOn="button"/>
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_valeurAq}" for="valeurAq" />
+                        <p:inputText id="valeurAq" value="#{materielsmarController.selected.valeurAq}" title="#{bundleMateriel.CreateMaterielsmarTitle_valeurAq}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_fournisseurM}" for="fournisseurM" />
+                        <p:inputText id="fournisseurM" value="#{materielsmarController.selected.fournisseurM}" title="#{bundleMateriel.CreateMaterielsmarTitle_fournisseurM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_directionM}" for="directionM" />
+                        <p:inputText id="directionM" value="#{materielsmarController.selected.directionM}" title="#{bundleMateriel.CreateMaterielsmarTitle_directionM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_siteM}" for="siteM" />
+                        <p:inputText id="siteM" value="#{materielsmarController.selected.siteM}" title="#{bundleMateriel.CreateMaterielsmarTitle_siteM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_bureauM}" for="bureauM" />
+                        <p:inputText id="bureauM" value="#{materielsmarController.selected.bureauM}" title="#{bundleMateriel.CreateMaterielsmarTitle_bureauM}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_varStock}" for="varStock" />
+                        <p:inputText id="varStock" value="#{materielsmarController.selected.varStock}" title="#{bundleMateriel.CreateMaterielsmarTitle_varStock}" />
+                        <p:outputLabel value="#{bundleMateriel.CreateMaterielsmarLabel_typeM}" for="typeM" />
+                        <p:inputText id="typeM" value="#{materielsmarController.selected.typeM}" title="#{bundleMateriel.CreateMaterielsmarTitle_typeM}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{materielsmarController.create}" value="#{bundleMateriel.Save}" update="display,:MaterielsmarListForm:datalist,:growl" oncomplete="handleSubmit(args,'MaterielsmarCreateDialog');"/>
+                    <p:commandButton value="#{bundleMateriel.Cancel}" onclick="MaterielsmarCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

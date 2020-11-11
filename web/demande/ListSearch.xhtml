@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="body">
+            
+            <h:form id="DemandeListForm">
+                <p:panel>
+                    <p:dataTable id="datalist" value="#{demandeController.items}" var="item"
+                                 selectionMode="single" selection="#{demandeController.selected}"
+                                 paginator="true" rowKey="#{item.idD}" rows="3" 
+                                 filteredValue="#{demandeController.filteredMaterielList}" widgetVar="DemandeWidget" 
+                                 scrollable="true" frozenColumns="4">
+                        
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Search all:"/>
+                                <p:inputText id="globalFilter" onkeyup="PF('DemandeWidget').filter()" style="width:150px" placeholder="Search text"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column filterBy="#{item.nom}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.prénom}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_prénom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prénom}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.stuctureD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_stuctureD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.stuctureD}"/>
+                        </p:column >
+                        <p:column filterBy="#{item.dateD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_dateD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateD}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column filterBy="#{item.refferenceD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_refferenceD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.refferenceD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.materielD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_materielD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materielD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.typeD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_typeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.typeD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.qteD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_qteD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qteD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.dureeD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_dureeD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dureeD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.projetEffectD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_projetEffectD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.projetEffectD}"/>
+                        </p:column>
+                        <p:column filterBy="#{item.natureTrvD}" filterMatchMode="contains" styleClass="colon">
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle3.ListDemandeTitle_natureTrvD}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.natureTrvD}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

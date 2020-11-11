@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition>
+
+        <p:dialog id="SMTLNotifDlg" widgetVar="SMTLNotifDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="La dérnière notification"/></h4>
+                    <p:dataTable value="#{notificationController.serviceMTLLastReceiver()}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Expéditeur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Récepteur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Objet"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Message"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton value="OK" onclick="SMTLNotifDlg.hide()"/>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog id="SMTLAllNotifDlg" widgetVar="SMTLAllNotifDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="Toutes les notifications"/></h4>
+                    <p:dataTable value="#{notificationController.serviceMTLAllReceiver()}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Expéditeur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.senderN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Récepteur"/>
+                            </f:facet>
+                            <h:outputText value="#{item.receiverN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Objet"/>
+                            </f:facet>
+                            <h:outputText value="#{item.objectMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Message"/>
+                            </f:facet>
+                            <h:outputText value="#{item.bodyMsgN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Date"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateN}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                <p:commandButton value="OK" onclick="SMTLAllNotifDlg.hide()"/>
+                </h:form>
+        </p:dialog>
+        
+        <p:dialog id="DemandeDlg" widgetVar="DemandeDlg" showEffect="fade" showHeader="explode" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUserTitle}">
+                <h:form>
+                    <h4><h:outputText value="La dérnière notification"/></h4>
+                    <p:dataTable value="#{demandeController.LastDemandeMTL()}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nom"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Prénom"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prénom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Matériel "/>
+                            </f:facet>
+                            <h:outputText value="#{item.materielD}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Quantité"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qteD}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Durée"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dureeD}"/>
+                        </p:column>
+                        
+                    </p:dataTable>
+                    <p:commandButton value="OK" onclick="DemandeDlg.hide()"/>
+                </h:form>
+        </p:dialog>
+        </ui:composition>
+</html>
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="header">
+            <h2 style="margin-left: 400px">Détaille matériel</h2>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="4" bgcolor="#FFDEAD"  width="500px" cellpadding="5px" cellspacing="10px" style=" margin-left: 300px; " >
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_idM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.idM}" title="#{bundle4.ViewMaterielTitle_idM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_articleM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.articleM}" title="#{bundle4.ViewMaterielTitle_articleM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_compteM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.compteM}" title="#{bundle4.ViewMaterielTitle_compteM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_desiniationM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.desiniationM}" title="#{bundle4.ViewMaterielTitle_desiniationM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_codeM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.codeM}" title="#{bundle4.ViewMaterielTitle_codeM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_numSerieM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.numSerieM}" title="#{bundle4.ViewMaterielTitle_numSerieM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_marckM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.marckM}" title="#{bundle4.ViewMaterielTitle_marckM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_departM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.departM}" title="#{bundle4.ViewMaterielTitle_departM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_serviceM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.serviceM}" title="#{bundle4.ViewMaterielTitle_serviceM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_etatM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.etatM}" title="#{bundle4.ViewMaterielTitle_etatM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_bultaLivraison}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.bultaLivraison}" title="#{bundle4.ViewMaterielTitle_bultaLivraison}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_bultatSortieM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.bultatSortieM}" title="#{bundle4.ViewMaterielTitle_bultatSortieM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_employeM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.employeM}" title="#{bundle4.ViewMaterielTitle_employeM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_dateAq}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.dateAq}" title="#{bundle4.ViewMaterielTitle_dateAq}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_valeurAq}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.valeurAq}" title="#{bundle4.ViewMaterielTitle_valeurAq}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_fournisseurM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.fournisseurM}" title="#{bundle4.ViewMaterielTitle_fournisseurM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_directionM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.directionM}" title="#{bundle4.ViewMaterielTitle_directionM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_siteM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.siteM}" title="#{bundle4.ViewMaterielTitle_siteM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_bureauM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.bureauM}" title="#{bundle4.ViewMaterielTitle_bureauM}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_varStock}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.varStock}" title="#{bundle4.ViewMaterielTitle_varStock}"/>
+                    <h:outputText value="#{bundle4.ViewMaterielLabel_typeM}" styleClass="panelClass"/>
+                    <h:outputText value="#{materielController.selected.typeM}" title="#{bundle4.ViewMaterielTitle_typeM}"/>
+                </h:panelGrid>
+                <br />
+                <p:commandButton action="#{materielController.prepareList}" value="#{bundle4.ViewMaterielShowAllLink}" style=" margin-left:50px ;font-size: 16px  ;margin-right: 10px; padding: 15px 25px ; border: none; background-color: #E95029 ; color: #fff ;" />
+                <br />
+               
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

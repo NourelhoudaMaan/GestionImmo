@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BonSortieCreateDlg" widgetVar="BonSortieCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleBon.CreateBonSortieTitle}">
+            <h:form id="BonSortieCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bonSortieController.selected != null}">
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_dateBS}" for="dateBS" />
+                        <p:calendar id="dateBS" pattern="dd/MM/yyyy" value="#{bonSortieController.selected.dateBS}" title="#{bundleBon.EditBonSortieTitle_dateBS}"  showOn="button" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_dateBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_employeBS}" for="employeBS" />
+                        <p:inputText id="employeBS" value="#{bonSortieController.selected.employeBS}" title="#{bundleBon.CreateBonSortieTitle_employeBS}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_employeBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_departBS}" for="departBS" />
+                        <p:inputText id="departBS" value="#{bonSortieController.selected.departBS}" title="#{bundleBon.CreateBonSortieTitle_departBS}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_departBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_serviceBS}" for="serviceBS" />
+                        <p:inputText id="serviceBS" value="#{bonSortieController.selected.serviceBS}" title="#{bundleBon.CreateBonSortieTitle_serviceBS}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_serviceBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_blocBS}" for="blocBS" />
+                        <p:inputText id="blocBS" value="#{bonSortieController.selected.blocBS}" title="#{bundleBon.CreateBonSortieTitle_blocBS}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_blocBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_bureauBS}" for="bureauBS" />
+                        <p:inputText id="bureauBS" value="#{bonSortieController.selected.bureauBS}" title="#{bundleBon.CreateBonSortieTitle_bureauBS}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_bureauBS}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_codeMBE}" for="codeMBE" />
+                        <p:inputText id="codeMBE" value="#{bonSortieController.selected.codeMBE}" title="#{bundleBon.CreateBonSortieTitle_codeMBE}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_codeMBE}"/>
+                        <p:outputLabel value="#{bundleBon.CreateBonSortieLabel_typeBE}" for="typeBE" />
+                        <p:inputText id="typeBE" value="#{bonSortieController.selected.typeBE}" title="#{bundleBon.CreateBonSortieTitle_typeBE}" required="true" requiredMessage="#{bundleBon.CreateBonSortieRequiredMessage_typeBS}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bonSortieController.create}" value="#{bundleBon.Save}" update="display,:BonSortieListForm:datalist,:growl" oncomplete="handleSubmit(args,'BonSortieCreateDialog');"/>
+                    <p:commandButton value="#{bundleBon.Cancel}" onclick="BonSortieCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
